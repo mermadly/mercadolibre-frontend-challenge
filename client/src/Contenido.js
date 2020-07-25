@@ -7,12 +7,24 @@ class Contenido extends React.Component {
     super(props);
     this.state = {
       results: [],
+      value: "",
+      error: false,
     };
   }
 
   handleChange(e) {
     this.setState({
       value: e.target.value,
+    });
+  }
+
+  async componentDidMount() {
+    const data = await fetch(
+      `https://api.mercadolibre.com/sites/MLA/search?q=${this.state.value}`
+    );
+    const result = await data.json();
+    this.setState({
+      results: result.results,
     });
   }
 
@@ -33,21 +45,24 @@ class Contenido extends React.Component {
     return (
       <div className="Contenido">
         <header className="header">
-          <input
-            type="search"
-            placeholder="Nunca dejes de buscar"
-            onChange={(e) => this.handleChange(e)}
-          />
-          <button
-            type="submit"
-            onClick={
-              this.state.value !== ""
-                ? () => this.submit()
-                : console.log("holas")
-            }
-          >
-            Enviar
-          </button>
+          <form>
+            <input
+              type="search"
+              placeholder="Nunca dejes de buscar"
+              onChange={(e) => this.handleChange(e)}
+              aria-label="Nunca dejes de buscar"
+            />
+            <button
+              type="submit"
+              onClick={
+                this.state.value !== ""
+                  ? () => this.submit()
+                  : console.log("holas")
+              }
+            >
+              Enviar
+            </button>
+          </form>
         </header>
         <Carousel results={this.state.results} />
         {console.log(this.state.results)}
