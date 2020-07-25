@@ -29,7 +29,9 @@ class Contenido extends React.Component {
   }
 
   submit() {
-    fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${this.state.value}`)
+    fetch(
+      `https://api.mercadolibre.com/sites/MLA/search?q=${this.state.value}&limit=3`
+    )
       .then((respuesta) => {
         respuesta
           .json()
@@ -39,6 +41,10 @@ class Contenido extends React.Component {
           .catch((err) => {});
       })
       .catch((err) => {});
+  }
+
+  handleSubmit() {
+    this.state.value !== "" ? this.submit() : this.setState({ error: true });
   }
 
   render() {
@@ -54,11 +60,7 @@ class Contenido extends React.Component {
             />
             <button
               type="submit"
-              onClick={
-                this.state.value !== ""
-                  ? () => this.submit()
-                  : console.log("holas")
-              }
+              onClick={(e) => e.preventDefault(this.handleSubmit())}
             >
               Enviar
             </button>
