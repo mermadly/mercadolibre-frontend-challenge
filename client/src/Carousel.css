@@ -1,0 +1,9 @@
+.container {
+    display: flex;
+}
+
+.mainContainer {
+    width: 100vw;
+    overflow: hidden;
+    height: 392px;
+}
