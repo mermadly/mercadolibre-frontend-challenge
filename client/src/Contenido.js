@@ -32,11 +32,25 @@ class Contenido extends React.Component {
   render() {
     return (
       <div className="Contenido">
-        <input type="search" onChange={(e) => this.handleChange(e)} />
-        <button type="submit" onClick={() => this.submit()}>
-          Enviar
-        </button>
+        <header className="header">
+          <input
+            type="search"
+            placeholder="Nunca dejes de buscar"
+            onChange={(e) => this.handleChange(e)}
+          />
+          <button
+            type="submit"
+            onClick={
+              this.state.value !== ""
+                ? () => this.submit()
+                : console.log("holas")
+            }
+          >
+            Enviar
+          </button>
+        </header>
         <Carousel results={this.state.results} />
+        {console.log(this.state.results)}
       </div>
     );
   }
