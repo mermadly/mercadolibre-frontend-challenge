@@ -1,8 +1,8 @@
 import React from "react";
-import Contenido from "./Contenido.js";
-import Carousel from "./Carousel";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Home from "./Home.js";
+import Contenido from "./Contenido/Contenido";
+import Productos from "./Productos/Productos";
+import Card from "./Card/Card";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 class App extends React.Component {
   constructor(props) {
@@ -13,8 +13,11 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <Route path="/" component={Contenido} />
-        {/* <Route path="/items?search=" component={Carousel} /> */}
+        <Switch>
+          <Route exact path="/" component={Contenido} />
+          <Route path="/items?search=:query" component={Productos} />
+          <Router path="/items/:id" component={Card} />
+        </Switch>
       </Router>
     );
   }

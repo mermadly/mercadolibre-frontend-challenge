@@ -1,6 +1,8 @@
 import React from "react";
-import Carousel from "./Carousel.js";
-import "./Contenido.css";
+import Productos from "../Productos/Productos";
+import SearchBox from "../SearchBox/SearchBox";
+import "../SearchBox/SearchBox.scss";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class Contenido extends React.Component {
   constructor(props) {
@@ -10,6 +12,9 @@ class Contenido extends React.Component {
       value: "",
       error: false,
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e) {
@@ -30,13 +35,14 @@ class Contenido extends React.Component {
 
   submit() {
     fetch(
-      `https://api.mercadolibre.com/sites/MLA/search?q=${this.state.value}&limit=3`
+      `https://api.mercadolibre.com/sites/MLA/search?q=${this.state.value}&limit=5`
     )
       .then((respuesta) => {
         respuesta
           .json()
           .then((info) => {
             this.setState({ results: info.results });
+            //this.props.history.push(`/items?search=${this.state.value}`);
           })
           .catch((err) => {});
       })
@@ -50,24 +56,16 @@ class Contenido extends React.Component {
   render() {
     return (
       <div className="Contenido">
-        <header className="header">
-          <form>
-            <input
-              type="search"
-              placeholder="Nunca dejes de buscar"
-              onChange={(e) => this.handleChange(e)}
-              aria-label="Nunca dejes de buscar"
-            />
-            <button
-              type="submit"
-              onClick={(e) => e.preventDefault(this.handleSubmit())}
-            >
-              Enviar
-            </button>
-          </form>
-        </header>
-        <Carousel results={this.state.results} />
-        {console.log(this.state.results)}
+        <SearchBox
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          value={this.state.value}
+          error={this.state.error}
+        ></SearchBox>
+        <Router>
+          <Productos results={this.state.results} />
+          {/* <Link to={`/items/${this.results.id}`}></Link> */}
+        </Router>
       </div>
     );
   }

@@ -1,8 +1,9 @@
 import React from "react";
-import Card from "./Card.js";
-import "./Carousel.css";
+import Card from "../Card/Card";
+import "./Productos.scss";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-class Carousel extends React.Component {
+class Productos extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -14,13 +15,9 @@ class Carousel extends React.Component {
         <div className="container">
           {this.props.results.map((obj, index) => {
             return (
-              <Card
-                image={obj.thumbnail}
-                key={index}
-                price={obj.price}
-                title={obj.title}
-                shipping={obj.shipping.free_shipping}
-              />
+              <Link key={index} to={`/items/${obj.id}`} className="link">
+                <Card obj={obj} />
+              </Link>
             );
           })}
         </div>
@@ -29,4 +26,4 @@ class Carousel extends React.Component {
   }
 }
 
-export default Carousel;
+export default Productos;
