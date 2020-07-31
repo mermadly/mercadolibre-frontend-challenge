@@ -1,7 +1,7 @@
 import React from "react";
 import Contenido from "./Contenido/Contenido";
 import Productos from "./Productos/Productos";
-import Card from "./Card/Card";
+import Item from "./Item/Item";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 class App extends React.Component {
@@ -16,7 +16,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={Contenido} />
           <Route exact path="/items" component={Productos} />
-          <Route path="/items/:id" component={Card} />
+          <Route path="/items/:id" component={Item} />
         </Switch>
       </Router>
     );

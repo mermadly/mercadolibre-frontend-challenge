@@ -78,13 +78,8 @@ class Contenido extends React.Component {
           value={this.state.value}
           error={this.state.error}
         ></SearchBox>
-        <Router>
-          <Productos results={this.state.results} />
-          {/* <Link to={`/items/${this.results.id}`}></Link> */}
-          <div className="cardDetailView">
-            <Card obj={this.state.temporaryObj}></Card>
-          </div>
-        </Router>
+        <Productos results={this.state.results} />
+        {/* <Link to={`/items/${this.results.id}`}></Link> */}
       </div>
     );
   }
