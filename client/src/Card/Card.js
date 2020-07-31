@@ -1,6 +1,7 @@
 import React from "react";
 import "./Card.scss";
 import TruckIcon from "../img/ic_shipping.png";
+import { BrowserRouter as Link } from "react-router-dom";
 
 class Card extends React.Component {
   constructor(props) {

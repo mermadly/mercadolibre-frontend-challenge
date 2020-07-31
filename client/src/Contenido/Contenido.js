@@ -1,6 +1,8 @@
 import React from "react";
 import Productos from "../Productos/Productos";
 import SearchBox from "../SearchBox/SearchBox";
+import Card from "../Card/Card";
+import "../Card/Card.scss";
 import "../SearchBox/SearchBox.scss";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -11,6 +13,20 @@ class Contenido extends React.Component {
       results: [],
       value: "",
       error: false,
+      temporaryObj: {
+        accepts_mercadopago: true,
+        address: { state_name: "Capital Federal" },
+        category_id: "MLA3422",
+        id: "MLA868841720",
+        permalink:
+          "https://articulo.mercadolibre.com.ar/MLA-868841720-kitty-mc-donald-8-juguetes-de-hello-kitty-_JM",
+        price: 550,
+        shipping: { free_shipping: true },
+        site_id: "MLA",
+        thumbnail:
+          "http://mla-s1-p.mlstatic.com/901929-MLA41598396356_042020-I.jpg",
+        title: "Kitty - Mc Donald - 8 Juguetes De Hello Kitty. ",
+      },
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -65,6 +81,9 @@ class Contenido extends React.Component {
         <Router>
           <Productos results={this.state.results} />
           {/* <Link to={`/items/${this.results.id}`}></Link> */}
+          <div className="cardDetailView">
+            <Card obj={this.state.temporaryObj}></Card>
+          </div>
         </Router>
       </div>
     );

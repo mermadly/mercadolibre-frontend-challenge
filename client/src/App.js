@@ -15,8 +15,8 @@ class App extends React.Component {
       <Router>
         <Switch>
           <Route exact path="/" component={Contenido} />
-          <Route path="/items?search=:query" component={Productos} />
-          <Router path="/items/:id" component={Card} />
+          <Route exact path="/items" component={Productos} />
+          <Route path="/items/:id" component={Card} />
         </Switch>
       </Router>
     );

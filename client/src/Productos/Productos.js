@@ -15,7 +15,11 @@ class Productos extends React.Component {
         <div className="container">
           {this.props.results.map((obj, index) => {
             return (
-              <Link key={index} to={`/items/${obj.id}`} className="link">
+              <Link
+                key={index}
+                to={{ pathname: `/items/${obj.id}` }}
+                className="link"
+              >
                 <Card obj={obj} />
               </Link>
             );
