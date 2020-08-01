@@ -25,7 +25,6 @@ const SearchBox = (props) => {
     <header className="header">
       <form>
         <img src={MLlogo} alt="logo MercadoLibre" className="logo" />
-
         <input
           className="SearchBox"
           type="search"

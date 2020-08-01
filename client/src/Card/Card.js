@@ -18,7 +18,7 @@ class Card extends React.Component {
           </div>
           <div className="productDetails">
             <span className="price">
-              ${this.props.obj.price}
+              $ {this.props.obj.price}
               {this.props.obj.shipping.free_shipping ? (
                 <img
                   className="truckIcon"

@@ -6,28 +6,35 @@
 }
 
 .itemData {
-  width: 60%;
+  width: 72%;
   padding: 32px;
   position: absolute;
   top: 70px;
   background-color: white;
   color: $off-black;
-  display: flex;
-  justify-content: space-between;
+  .itemTop {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
-.itemDetails {
-  margin-left: 16px;
-  margin-top: 10px;
-  max-width: 300px;
+.itemInfo {
+  max-width: 250px;
   .itemPrice {
     margin-bottom: 32px;
-    font-size: 24px;
-    .truckIcon {
-      margin-left: 10px;
-    }
+    font-size: 46px;
   }
   .itemName {
+    font-size: 24px;
+    margin-bottom: 32px;
+    font-weight: bold;
+  }
+  .itemBuy {
+    color: $white;
+    background-color: $blue;
+    width: 100%;
+    border: 1px solid $blue;
+    height: 40px;
     font-size: 18px;
   }
 }
@@ -42,7 +49,22 @@
   }
 }
 
+.itemDetails {
+  margin-bottom: 16px;
+}
+
 .estadoItem,
 .ventasItem {
   font-size: 14px;
+}
+
+.itemDescription {
+  max-width: 680px;
+  .itemDescriptionTitle {
+    font-size: 28px;
+    margin-bottom: 32px;
+  }
+  .itemDescriptionText {
+    font-size: 16px;
+  }
 }

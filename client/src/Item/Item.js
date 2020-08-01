@@ -14,8 +14,6 @@ const Item = (props) => {
           .json()
           .then((info) => {
             setProduct(info);
-            console.log(info);
-            console.log(product);
           })
           .catch((err) => {});
       })
@@ -45,24 +43,32 @@ const Item = (props) => {
   return (
     <div className="Item">
       <div className="itemData">
-        <div className="itemImage">
-          <img src={props.location.state.data.thumbnail} alt="" />
-        </div>
-        <div className="itemDetails">
-          <div>
-            <span className="estadoItem">
-              {props.location.state.data.condition === "new"
-                ? "Nuevo"
-                : "Usado"}
-            </span>
-            {props.location.state.data.sold_quantity !== 0 ? (
-              <span className="ventasItem">
-                - {props.location.state.data.sold_quantity} vendidos
-              </span>
-            ) : null}
+        <div className="itemTop">
+          <div className="itemImage">
+            <img src={product.thumbnail} alt="" />
           </div>
-          <div className="itemName">{props.location.state.data.title}</div>
-          <div className="itemPrice">${props.location.state.data.price}</div>
+          <div className="itemInfo">
+            <div className="itemDetails">
+              <span className="estadoItem">
+                {product.condition === "new" ? "Nuevo " : "Usado"}
+              </span>
+              {product.sold_quantity !== 0 ? (
+                <span className="ventasItem">
+                  - {product.sold_quantity} vendidos
+                </span>
+              ) : null}
+            </div>
+            <div className="itemName">{product.title}</div>
+            <div className="itemPrice">$ {product.price}</div>
+            <button className="itemBuy">Comprar</button>
+          </div>
+        </div>
+        <div className="itemDescription">
+          <div className="itemDescriptionTitle">Descripción del producto</div>
+          <div className="itemDescriptionText">
+            {" "}
+            {productDescription.plain_text}
+          </div>
         </div>
       </div>
     </div>
