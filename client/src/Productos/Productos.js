@@ -6,6 +6,8 @@ import { Link, useLocation } from "react-router-dom";
 const Productos = () => {
   const [results, setResults] = useState([]);
   const location = useLocation();
+  const [prueba, setPrueba] = useState({});
+  console.log(prueba);
 
   const getSearchParams = () => {
     //Herramienta del navegador
@@ -14,6 +16,7 @@ const Productos = () => {
 
   useEffect(() => {
     search();
+    fetchPrueba();
   }, [location.search]);
 
   const search = () => {
@@ -35,9 +38,26 @@ const Productos = () => {
       .catch((err) => {});
   };
 
+  const fetchPrueba = () => {
+    let url = `http://localhost:5000/`;
+    fetch(url)
+      .then((respuesta) => {
+        respuesta
+          .json()
+          .then((info) => {
+            setPrueba(info.nombre);
+          })
+          .catch((err) => {});
+      })
+      .catch((err) => {});
+  };
+
   return (
     <div className="mainContainer">
       <div className="container">
+        <div>
+          {prueba.nombre} {prueba.apellido} {prueba.edad}
+        </div>
         {results.map((obj, index) => {
           return (
             <Link
