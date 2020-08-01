@@ -1,33 +1,57 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../Card/Card";
 import "./Productos.scss";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-class Productos extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+const Productos = () => {
+  const [results, setResults] = useState([]);
+  const location = useLocation();
 
-  render() {
-    return (
-      <div className="mainContainer">
-        <div className="container">
-          {this.props.results.map((obj, index) => {
-            return (
-              <Link
-                key={index}
-                to={{ pathname: `/items/${obj.id}`, state: { data: obj } }}
-                className="link"
-              >
-                <Card obj={obj} />
-              </Link>
-            );
-          })}
-        </div>
+  const getSearchParams = () => {
+    //Herramienta del navegador
+    return new URLSearchParams(location.search);
+  };
+
+  useEffect(() => {
+    search();
+  }, []);
+
+  const search = () => {
+    let query = getSearchParams();
+
+    fetch(
+      `https://api.mercadolibre.com/sites/MLA/search?q=${query.get(
+        "search"
+      )}&limit=5`
+    )
+      .then((respuesta) => {
+        respuesta
+          .json()
+          .then((info) => {
+            setResults(info.results);
+          })
+          .catch((err) => {});
+      })
+      .catch((err) => {});
+  };
+
+  return (
+    <div className="mainContainer">
+      <div className="container">
+        {results.map((obj, index) => {
+          return (
+            <Link
+              key={index}
+              to={{ pathname: `/items/${obj.id}`, state: { data: obj } }}
+              className="link"
+            >
+              <Card obj={obj} />
+            </Link>
+          );
+        })}
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default Productos;
