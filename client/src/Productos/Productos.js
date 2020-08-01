@@ -14,7 +14,7 @@ const Productos = () => {
 
   useEffect(() => {
     search();
-  }, []);
+  }, [location.search]);
 
   const search = () => {
     let query = getSearchParams();
