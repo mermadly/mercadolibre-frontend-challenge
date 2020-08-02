@@ -14,7 +14,7 @@ const SearchBox = (props) => {
   };
 
   const handleSubmit = () => {
-    if (value == "") {
+    if (value.trim() == "") {
       setError(true);
     } else {
       history.push({ pathname: "/items", search: `?search=${value}` });
