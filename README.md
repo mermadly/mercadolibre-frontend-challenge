@@ -23,5 +23,5 @@ Luego en la carpeta "server" correr el comando "npm install" y luego, en caso de
 
 Para correr la aplicación:
 
-Desde la carpeta "client" correr el comando "npm start". Debería inicializarse por defecto en localhost:3000.
-Luego en l carpeta "server" correr el comando "nodemon". Debería inicializarse por defecto en localhost:5000.
+Desde la carpeta "client" correr el comando "npm start". Debería inicializarse por defecto en localhost:3000.<br/>
+Luego en la carpeta "server" correr el comando "nodemon". Debería inicializarse por defecto en localhost:5000.
