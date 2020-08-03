@@ -2,13 +2,17 @@
 
 .Item {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.itemBreadcrumb {
+  width: 75%;
 }
 
 .itemData {
   width: 72%;
   padding: 32px;
-  position: absolute;
   top: 70px;
   background-color: white;
   color: $off-black;

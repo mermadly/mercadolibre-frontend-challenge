@@ -30,6 +30,11 @@ const Productos = () => {
   return (
     <div className="mainContainer">
       <div className="container">
+        {fetchInfo.items ? (
+          <div className="productBreadcrumb">
+            <Breadcrumb categories={fetchInfo.categories} />
+          </div>
+        ) : null}
         {fetchInfo.items &&
           fetchInfo.items.map((obj, index) => {
             return (

@@ -1,0 +1,23 @@
+@import "../colorPalette.scss";
+
+.Breadcrumb {
+  color: $medium-grey;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.breadcrumbLink {
+  text-decoration: none;
+  color: $dark-grey;
+  margin-right: 8px;
+}
+
+.breadcrumbItem:last-child .breadcrumbIcon {
+  display: none;
+}
+
+.breadcrumbIcon {
+  margin-right: 8px;
+  font-size: 12px;
+}
