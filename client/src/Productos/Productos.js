@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+
 import Card from "../Card/Card";
 import Breadcrumb from "../Breadcrumb/Breadcrumb";
+
 import "./Productos.scss";
-import { Link, useLocation } from "react-router-dom";
 
 const Productos = () => {
   const [fetchInfo, setfetchInfo] = useState([]);

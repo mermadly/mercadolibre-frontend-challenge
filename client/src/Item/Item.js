@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Breadcrumb from "../Breadcrumb/Breadcrumb";
-import TruckIcon from "../img/ic_shipping.png";
-import { BrowserRouter as Link } from "react-router-dom";
 import "./Item.scss";
 
 const Item = (props) => {

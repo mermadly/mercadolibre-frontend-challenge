@@ -1,7 +1,6 @@
 import React from "react";
-import "./Card.scss";
 import TruckIcon from "../img/ic_shipping.png";
-import { BrowserRouter as Link } from "react-router-dom";
+import "./Card.scss";
 
 const Card = (props) => {
   return (

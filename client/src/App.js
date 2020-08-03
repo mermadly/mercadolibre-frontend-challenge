@@ -1,7 +1,8 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+
 import Productos from "./Productos/Productos";
 import Item from "./Item/Item";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import SearchBox from "./SearchBox/SearchBox";
 
 const App = () => {
