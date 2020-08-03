@@ -110,8 +110,18 @@ app.get("/api/items/:id", async (req, res) => {
     }
   };
 
+  const getCategories = async (data) => {
+    const respuestaCategoria = await fetch(
+      originalEndpoints.categories + itemInfo.category_id
+    );
+    const infoCat = await respuestaCategoria.json();
+
+    return infoCat.path_from_root;
+  };
+
   const itemInfo = await fetchItemData();
   const itemDescription = await fetchItemDescription();
+  const itemCategories = await getCategories();
 
   const organizedItemInfo = {
     id: itemInfo.id,
@@ -125,6 +135,7 @@ app.get("/api/items/:id", async (req, res) => {
     free_shipping: itemInfo.shipping.free_shipping,
     sold_quantity: itemInfo.sold_quantity,
     description: itemDescription.plain_text,
+    categories: itemCategories,
   };
 
   res.json({

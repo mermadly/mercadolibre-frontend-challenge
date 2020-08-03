@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Card from "../Card/Card";
+import Breadcrumb from "../Breadcrumb/Breadcrumb";
 import "./Productos.scss";
 import { Link, useLocation } from "react-router-dom";
 
