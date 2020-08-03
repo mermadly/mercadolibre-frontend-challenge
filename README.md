@@ -1,5 +1,6 @@
 # mercadolibre-frontend-challenge
 Challenge de frontend para MercadoLibre
+
 Cliente:
 
 - React
@@ -16,12 +17,13 @@ Node >= 6
 Npm
 Nodemon (npm i -g nodemon)
 
-Configuración:
+Configuración:</br/>
+
 Clonar el repositorio.
-Desde la carpeta "client" correr el comando "npm install" y luego "npm install node-sass".
+Desde la carpeta "client" correr el comando "npm install" y luego "npm install node-sass".<br/>
 Luego en la carpeta "server" correr el comando "npm install" y luego, en caso de no tenerlo instalado, "npm install -g nodemon".
 
-Para correr la aplicación:
+Para correr la aplicación:</br/>
 
 Desde la carpeta "client" correr el comando "npm start". Debería inicializarse por defecto en localhost:3000.<br/>
 Luego en la carpeta "server" correr el comando "nodemon". Debería inicializarse por defecto en localhost:5000.
